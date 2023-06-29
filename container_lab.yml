@@ -1,0 +1,53 @@
+name:lab
+topology:
+  kinds:
+    ceos
+      image: arista/ceos:4.28.4M
+  nodes:
+    Leaf1b:
+      kind: ceos
+    Border1a:
+      kind: ceos
+    Spine1:
+      kind: ceos
+    PC1:
+      kind: ceos
+    FW1:
+      kind: ceos
+    Border2:
+      kind: ceos
+    Leaf2:
+      kind: ceos
+    Spine3:
+      kind: ceos
+    FW2:
+      kind: ceos
+    PC2:
+      kind: ceos
+    Leaf1a:
+      kind: ceos
+    POE:
+      kind: ceos
+    Spine2:
+      kind: ceos
+    Border1b:
+      kind: ceos
+  links:
+    - endpoints:['Border1a:eth1', 'Border2:eth1']
+    - endpoints:['Leaf1b:eth1', 'Spine1:eth1']
+    - endpoints:['Border1a:eth2', 'Spine1:eth2']
+    - endpoints:['PC1:eth1', 'Leaf1b:eth2']
+    - endpoints:['FW1:eth1', 'Border1a:eth3']
+    - endpoints:['Leaf2:eth1', 'Spine3:eth1']
+    - endpoints:['Spine3:eth2', 'Border2:eth2']
+    - endpoints:['FW2:eth1', 'Border2:eth3']
+    - endpoints:['PC2:eth1', 'Leaf2:eth2']
+    - endpoints:['Leaf1a:eth1', 'Spine1:eth3']
+    - endpoints:['Leaf1a:eth2', 'Leaf1b:eth3']
+    - endpoints:['POE:eth1', 'Leaf1a:eth3']
+    - endpoints:['Spine2:eth1', 'Border1a:eth4']
+    - endpoints:['Spine2:eth2', 'Leaf1b:eth4']
+    - endpoints:['Spine2:eth3', 'Leaf1a:eth4']
+    - endpoints:['Border1a:eth5', 'Border1b:eth1']
+    - endpoints:['Border1b:eth2', 'Spine1:eth4']
+    - endpoints:['Border1b:eth3', 'Spine2:eth4']
