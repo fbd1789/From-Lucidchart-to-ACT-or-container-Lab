@@ -2,7 +2,7 @@ import pandas as pd
 from ipaddress import IPv4Network, IPv4Interface
 from collections import Counter
 
-code_version = "4.28.4M"
+code_version = "4.29.3M"
 ip_address_mgnt = list(IPv4Network('192.168.1.0/24').hosts())
 
 forms = [{'site':'Rectangle Container', 'leaf':'TerminatorBlock', 'spine':'Preparation','other':'Database', 'line':'Line'}] 
@@ -60,7 +60,7 @@ def structure_ACT(result_nodes, result_links):
     structure.append("  " * 1 + "username: cvpadmin")
     structure.append("  " * 1 + "password: arista123")
     structure.append("  " * 1 + "username: cvpadmin")
-    structure.append("  " * 1 + "version: 4.28.6M")
+    structure.append("  " * 1 + f"version: {code_version}")
   
     structure.append('generic:')
     structure.append("  " * 1 + "username: cvpadmin")
@@ -70,7 +70,7 @@ def structure_ACT(result_nodes, result_links):
     structure.append('cvp:')
     structure.append("  " * 1 + "username: root")
     structure.append("  " * 1 + "password: cvproot")
-    structure.append("  " * 1 + "version: 2022.3.1")
+    structure.append("  " * 1 + "version: 2023.1.0")
     structure.append("  " * 1 + "instance: singlenode")
 
     structure.append('nodes:')
@@ -80,11 +80,10 @@ def structure_ACT(result_nodes, result_links):
         structure.append("  " * 1 + f"- {value['legend']}:")
         structure.append("  " * 3 + f'ip_addr: {ip_address_mgnt[ipCounter]}')
         structure.append("  " * 3 + f'node_type: veos')
-        structure.append("  " * 3 + f'version: 4.28.6M')
+        structure.append("  " * 3 + f'version: {code_version}')
         structure.append("  " * 3 + f'neighbors:')
         for link in result_links:
             if value['legend'] in link:
-                print(value['legend'], link , link.find(value['legend']))
                 if link.find(value['legend']) == 0 :
                     neighbor_device = ((link.split(',')[1]).split(':')[0]).strip()
                     neighbor_port = ((link.split(',')[1]).split(':')[1]).strip()
@@ -124,12 +123,4 @@ if __name__ == "__main__":
     result_links = find_links(df,result_nodes[0])
     structure_container_lab(result_nodes[1]+result_links[0])
     structure_ACT(result_nodes[0], result_links[1])
-
-    # for i, row in df.iterrows():
-    #     id_row = row['Id']
-    #     name_row = row['Name']
-    #     container_row = row['Contained By']
-    #     line_source_row = row['Line Source']
-    #     line_destination_row = row['Line Destination']
-    #     test_row = row['Text Area 1']
     

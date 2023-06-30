@@ -2,7 +2,7 @@ veos:
   username: cvpadmin
   password: arista123
   username: cvpadmin
-  version: 4.28.6M
+  version: 4.29.3M
 generic:
   username: cvpadmin
   password: arista123
@@ -10,13 +10,13 @@ generic:
 cvp:
   username: root
   password: cvproot
-  version: 2022.3.1
+  version: 2023.1.0
   instance: singlenode
 nodes:
   - Leaf1b:
       ip_addr: 192.168.1.2
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Spine1
           neighborPort: Ethernet1
@@ -34,7 +34,7 @@ nodes:
   - Border1a:
       ip_addr: 192.168.1.3
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Border2
           neighborPort: Ethernet1
@@ -55,7 +55,7 @@ nodes:
   - Spine1:
       ip_addr: 192.168.1.4
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Leaf1b
           neighborPort: Ethernet1
@@ -73,7 +73,7 @@ nodes:
   - PC1:
       ip_addr: 192.168.1.5
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Leaf1b
           neighborPort: Ethernet2
@@ -82,7 +82,7 @@ nodes:
   - FW1:
       ip_addr: 192.168.1.6
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Border1a
           neighborPort: Ethernet3
@@ -91,7 +91,7 @@ nodes:
   - Border2:
       ip_addr: 192.168.1.7
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Border1a
           neighborPort: Ethernet1
@@ -106,7 +106,7 @@ nodes:
   - Leaf2:
       ip_addr: 192.168.1.8
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Spine3
           neighborPort: Ethernet1
@@ -118,7 +118,7 @@ nodes:
   - Spine3:
       ip_addr: 192.168.1.9
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Leaf2
           neighborPort: Ethernet1
@@ -130,7 +130,7 @@ nodes:
   - FW2:
       ip_addr: 192.168.1.10
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Border2
           neighborPort: Ethernet3
@@ -139,7 +139,7 @@ nodes:
   - PC2:
       ip_addr: 192.168.1.11
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Leaf2
           neighborPort: Ethernet2
@@ -148,7 +148,7 @@ nodes:
   - Leaf1a:
       ip_addr: 192.168.1.12
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Spine1
           neighborPort: Ethernet3
@@ -166,7 +166,7 @@ nodes:
   - POE:
       ip_addr: 192.168.1.13
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Leaf1a
           neighborPort: Ethernet3
@@ -175,7 +175,7 @@ nodes:
   - Spine2:
       ip_addr: 192.168.1.14
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Border1a
           neighborPort: Ethernet4
@@ -193,7 +193,7 @@ nodes:
   - Border1b:
       ip_addr: 192.168.1.15
       node_type: veos
-      version: 4.28.6M
+      version: 4.29.3M
       neighbors:
         - neighborDevice: Border1a
           neighborPort: Ethernet5
@@ -205,3 +205,9 @@ nodes:
           neighborPort: Ethernet4
           port: Ethernet3
       ports: []
+  - cvp:
+      ip_addr: 192.168.1.16
+      node_type: cvp
+  - devopps:
+      ip_addr: 192.168.1.17
+      node_type: generic

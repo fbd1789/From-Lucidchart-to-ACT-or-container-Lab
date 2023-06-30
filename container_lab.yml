@@ -2,7 +2,7 @@ name:lab
 topology:
   kinds:
     ceos
-      image: arista/ceos:4.28.4M
+      image: arista/ceos:4.29.3M
   nodes:
     Leaf1b:
       kind: ceos
