@@ -3,7 +3,7 @@ from ipaddress import IPv4Network, IPv4Interface
 from collections import Counter
 
 code_version = "4.29.3M"
-ip_address_mgnt = list(IPv4Network('192.168.1.0/24').hosts())
+ip_address_mgnt = list(IPv4Network('192.168.0.0/24').hosts())
 
 forms = [{'site':'Rectangle Container', 'leaf':'TerminatorBlock', 'spine':'Preparation','other':'Database', 'line':'Line'}] 
 forms_used = ['Rectangle Container', 'TerminatorBlock', 'Preparation','Database', 'Line', 'Document', 'Page', 'Group 1']
@@ -99,7 +99,7 @@ def structure_ACT(result_nodes, result_links):
     
     ipCounter += 1
     structure.append("  " * 1 + f"- cvp:")
-    structure.append("  " * 3 + f'ip_addr: {ip_address_mgnt[ipCounter]}')
+    structure.append("  " * 3 + f'ip_addr: 192.168.0.5')
     structure.append("  " * 3 + f'node_type: cvp')
 
     ipCounter += 1
@@ -118,6 +118,7 @@ def file_write(structure, file_name):
 
 if __name__ == "__main__":
     df = pd.read_csv ('Test calibration.csv', usecols=['Id','Name', 'Contained By', 'Line Source', 'Line Destination', 'Text Area 1'])
+    ip_address_mgnt.pop(4)
     check_form_used(df)
     result_nodes = find_nodes(df)
     result_links = find_links(df,result_nodes[0])
